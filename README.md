@@ -20,3 +20,6 @@
  - Соответствие гайдлайнам IOS
  - Поддержка горизонтальной ориентации
  - Поддержка IOS 11+
+
+![Simulator Screen Shot - iPhone 7 - 2021-05-13 at 15 50 44](https://user-images.githubusercontent.com/43065498/118128496-a325d800-b403-11eb-8f9b-3ca9d2815e45.png)
+![Simulator Screen Shot - iPhone 7 - 2021-05-13 at 14 40 52](https://user-images.githubusercontent.com/43065498/118128352-6fe34900-b403-11eb-8865-b174bf3f73e4.png)
