@@ -8,6 +8,7 @@
 import UIKit
 
 final class CardsListVC: BaseVC, StoryboardInstatiatable {
+    
     // MARK: - IBOutlets
     
     @IBOutlet private weak var tableView: UITableView!
@@ -62,7 +63,7 @@ private extension CardsListVC {
                     self.tableView.reloadData()
                     
                 case .errors(let errors):
-                    print(errors)
+                    self.handleErrors(errors: errors)
                     
                 case .view: break
                 }
@@ -71,10 +72,14 @@ private extension CardsListVC {
     }
     
     func setupNavigationBar() {
-        navigationController?.navigationBar.topItem?.title = "Картки"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardTapped))
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(trashCardSTapped))
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        navigationItem.hidesBackButton = true
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self,
+                                                            action: #selector(addCardTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self,
+                                                           action: #selector(trashCardSTapped))
     }
     
     func setupTableView() {
@@ -82,12 +87,12 @@ private extension CardsListVC {
     }
     
     @objc
-    private func addCardTapped() {
+    func addCardTapped() {
         viewModel?.addCardTapped()
     }
     
     @objc
-    private func trashCardSTapped() {
+    func trashCardSTapped() {
         viewModel?.trashCardsTapped()
     }
 }

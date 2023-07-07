@@ -42,6 +42,11 @@
 		C59813542A5805500077C2CF /* CardsTVCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813532A5805500077C2CF /* CardsTVCModel.swift */; };
 		C59813562A581B480077C2CF /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813552A581B480077C2CF /* Error.swift */; };
 		C59813582A5833970077C2CF /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813572A5833960077C2CF /* UIColor.swift */; };
+		C598135A2A5858E60077C2CF /* CardDetailsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59813592A5858E60077C2CF /* CardDetailsModuleBuilder.swift */; };
+		C598135C2A5858F20077C2CF /* CardDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598135B2A5858F20077C2CF /* CardDetailsViewModelProtocol.swift */; };
+		C598135E2A5858FC0077C2CF /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598135D2A5858FC0077C2CF /* CardDetailsViewModel.swift */; };
+		C59813602A5859080077C2CF /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598135F2A5859080077C2CF /* CardDetailsVC.swift */; };
+		C59813642A586BBD0077C2CF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59813632A586BBD0077C2CF /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +87,11 @@
 		C59813532A5805500077C2CF /* CardsTVCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTVCModel.swift; sourceTree = "<group>"; };
 		C59813552A581B480077C2CF /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		C59813572A5833960077C2CF /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		C59813592A5858E60077C2CF /* CardDetailsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsModuleBuilder.swift; sourceTree = "<group>"; };
+		C598135B2A5858F20077C2CF /* CardDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		C598135D2A5858FC0077C2CF /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
+		C598135F2A5859080077C2CF /* CardDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
+		C59813632A586BBD0077C2CF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				C59812E62A56C9220077C2CF /* Assets.xcassets */,
+				C59813632A586BBD0077C2CF /* Colors.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -366,6 +377,10 @@
 		C59813342A575D1E0077C2CF /* CardDetails */ = {
 			isa = PBXGroup;
 			children = (
+				C59813592A5858E60077C2CF /* CardDetailsModuleBuilder.swift */,
+				C598135B2A5858F20077C2CF /* CardDetailsViewModelProtocol.swift */,
+				C598135D2A5858FC0077C2CF /* CardDetailsViewModel.swift */,
+				C598135F2A5859080077C2CF /* CardDetailsVC.swift */,
 			);
 			path = CardDetails;
 			sourceTree = "<group>";
@@ -452,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C59813642A586BBD0077C2CF /* Colors.xcassets in Resources */,
 				C59812EA2A56C9220077C2CF /* LaunchScreen.storyboard in Resources */,
 				C59812E72A56C9220077C2CF /* Assets.xcassets in Resources */,
 				C59812E22A56C91F0077C2CF /* Cards.storyboard in Resources */,
@@ -472,6 +488,7 @@
 				C598130A2A56D28E0077C2CF /* Coordinator.swift in Sources */,
 				C598134B2A57FB2A0077C2CF /* BaseVC.swift in Sources */,
 				C59813442A57F5EC0077C2CF /* CardsListViewModelProtocol.swift in Sources */,
+				C598135A2A5858E60077C2CF /* CardDetailsModuleBuilder.swift in Sources */,
 				C598132C2A5759360077C2CF /* UIViewController.swift in Sources */,
 				C59813122A56D35C0077C2CF /* Enums.swift in Sources */,
 				C59813402A57F5D40077C2CF /* CardsListVC.swift in Sources */,
@@ -480,6 +497,7 @@
 				C59813282A5758AE0077C2CF /* StoryboardInstatiatable.swift in Sources */,
 				C59812F82A56CF850077C2CF /* Card.swift in Sources */,
 				C59813372A57F1FA0077C2CF /* Module.swift in Sources */,
+				C598135E2A5858FC0077C2CF /* CardDetailsViewModel.swift in Sources */,
 				C59813172A56D6180077C2CF /* CoreDataManager.swift in Sources */,
 				C59812DD2A56C91F0077C2CF /* SceneDelegate.swift in Sources */,
 				C59813542A5805500077C2CF /* CardsTVCModel.swift in Sources */,
@@ -489,10 +507,12 @@
 				C59813072A56D26E0077C2CF /* AppContainer.swift in Sources */,
 				C59813582A5833970077C2CF /* UIColor.swift in Sources */,
 				C59813482A57F9C00077C2CF /* Collection.swift in Sources */,
+				C59813602A5859080077C2CF /* CardDetailsVC.swift in Sources */,
 				C59813192A5751A90077C2CF /* CoreDataManagerImpl.swift in Sources */,
 				C59813422A57F5DD0077C2CF /* CardsListViewModel.swift in Sources */,
 				C59813392A57F2D30077C2CF /* UITableView.swift in Sources */,
 				C59813462A57F5F70077C2CF /* CardsListModuleBuilder.swift in Sources */,
+				C598135C2A5858F20077C2CF /* CardDetailsViewModelProtocol.swift in Sources */,
 				C59813102A56D33A0077C2CF /* Constants.swift in Sources */,
 				C59813232A5756290077C2CF /* UINavigationController.swift in Sources */,
 				C59813562A581B480077C2CF /* Error.swift in Sources */,

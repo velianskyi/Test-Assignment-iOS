@@ -18,4 +18,11 @@ public enum CardType: Int16, CaseIterable {
         case .masterCard: return UIImage(named: "icon_masterCard")
         }
     }
+    
+    var color: UIColor? {
+        switch self {
+        case .visa: return .color(.visa)
+        case .masterCard: return .color(.masterCard)
+        }
+    }
 }

@@ -14,15 +14,20 @@ import CoreData
 public class Card: NSManagedObject {}
 
 extension Card {
-    @NSManaged public var id: UUID
-    @NSManaged public var name: String
-    @NSManaged public var number: String
-    @NSManaged public var expMonth: Int16
-    @NSManaged public var expYear: Int16
-    @NSManaged public var timestamp: Date
-    @NSManaged public var typeValue: Int16
+    static let numberRemovingCharactersCount = 10
+}
+
+// MARK: - Public Properties
+public extension Card {
+    @NSManaged var id: UUID
+    @NSManaged var name: String
+    @NSManaged var number: String
+    @NSManaged var expMonth: Int16
+    @NSManaged var expYear: Int16
+    @NSManaged var timestamp: Date
+    @NSManaged var typeValue: Int16
     
-    public var type: CardType {
+    var type: CardType {
         set {
             self.typeValue = newValue.rawValue
         }
@@ -31,12 +36,32 @@ extension Card {
         }
     }
     
+    var formattedDetailsNumber: String? {
+        get {
+            formattedListNumber?.replaceCharacters(
+                inRange: .init(location: .zero, length: Card.numberRemovingCharactersCount)
+            )
+        }
+    }
+}
+
+// MARK: - Private Properties
+private extension Card {
+    var formattedListNumber: String? {
+        get {
+            try? number
+                .masked(matching: "(?<=).(?=.{4})")
+                .masked(matching: "(?<=.{4})(?=(?:.{4})+$)", with: String.space)
+        }
+    }
+}
+
+// MARK: - Internal Methods
+extension Card {
     func createTVCModel() -> CardsTVCModel {
         return CardsTVCModel(
             type: type,
-            number: try? number
-                .masked(matching: "(?<=).(?=.{4})")
-                .masked(matching: "(?<=.{4})(?=(?:.{4})+$)", with: String.space)
+            number: formattedListNumber
         )
     }
 }

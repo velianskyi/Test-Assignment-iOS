@@ -8,6 +8,7 @@
 import Combine
 
 final class CardsListViewModel: CardsListViewModelProtocol {
+    
     // MARK: - Public Properties
     
     lazy public var state: AnyPublisher<ViewState, Never> = stateSubject.eraseToAnyPublisher()
@@ -18,7 +19,6 @@ final class CardsListViewModel: CardsListViewModelProtocol {
     private(set) lazy var transitionPublisher = transitionSubject.eraseToAnyPublisher()
     private let transitionSubject = PassthroughSubject<CardsListTransition, Never>()
     private let stateSubject = PassthroughSubject<ViewState, Never>()
-    private var subscriptions = Set<AnyCancellable>()
     
     private let coreDataManager: CoreDataManager
     
@@ -80,7 +80,7 @@ private extension CardsListViewModel {
             self.cards = cards
             stateSubject.send(.loaded)
         case let.error(errors):
-            print(errors)
+            stateSubject.send(.errors(errors))
         }
     }
 }

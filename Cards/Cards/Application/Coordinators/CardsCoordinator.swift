@@ -58,6 +58,23 @@ private extension CardsCoordinator {
     }
     
     func showCardDetails(_ card: Card){
-        print(card)
+        let module = CardDetailsModuleBuilder.build(appContainer: appContainer, card: card)
+        
+        module.transitionPublisher
+            .sink { [weak self] action in
+                guard let self = self else { return }
+                
+                switch action {
+                case .openSmth:
+                    self.showSmth()
+                }
+            }
+            .store(in: &subscriptions)
+        
+        pushModule(module.viewController)
+    }
+    
+    func showSmth() {
+        print("showSmth")
     }
 }
