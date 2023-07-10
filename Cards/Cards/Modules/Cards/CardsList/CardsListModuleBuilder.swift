@@ -16,6 +16,6 @@ final class CardsListModuleBuilder {
         let viewModel = CardsListViewModel(coreDataManager: appContainer.coreDataManager)
         let viewController = CardsListVC.instantiate(viewModel)
         
-        return Module(transitionPublisher: viewModel.transitionPublisher, viewController: viewController)
+        return Module(transitionPublisher: viewModel.transition, viewController: viewController)
     }
 }

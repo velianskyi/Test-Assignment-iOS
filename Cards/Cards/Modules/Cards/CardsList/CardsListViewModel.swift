@@ -5,20 +5,18 @@
 //  Created by Serhii Velianskyi on 07.07.2023.
 //
 
-import Combine
+import Foundation
 
 final class CardsListViewModel: CardsListViewModelProtocol {
     
     // MARK: - Public Properties
     
-    lazy public var state: AnyPublisher<ViewState, Never> = stateSubject.eraseToAnyPublisher()
+    lazy public var state = Observable<ViewState>()
     public var numberOfRows: Int { cards.count }
     
     // MARK: - Private Properties
     
-    private(set) lazy var transitionPublisher = transitionSubject.eraseToAnyPublisher()
-    private let transitionSubject = PassthroughSubject<CardsListTransition, Never>()
-    private let stateSubject = PassthroughSubject<ViewState, Never>()
+    private(set) lazy var transition = Observable<CardsListTransition>()
     
     private let coreDataManager: CoreDataManager
     
@@ -64,7 +62,7 @@ extension CardsListViewModel {
     }
     
     public func openCardDetail(index: Int) {
-        transitionSubject.send(.openCardDetails(cards[index]))
+        transition.send(.openCardDetails(cards[index]))
     }
 }
 
@@ -78,9 +76,9 @@ private extension CardsListViewModel {
         switch result {
         case let.success(cards):
             self.cards = cards
-            stateSubject.send(.loaded)
+            state.send(.loaded)
         case let.error(errors):
-            stateSubject.send(.errors(errors))
+            state.send(.errors(errors))
         }
     }
 }

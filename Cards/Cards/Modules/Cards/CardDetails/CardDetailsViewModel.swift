@@ -5,13 +5,13 @@
 //  Created by Serhii Velianskyi on 07.07.2023.
 //
 
-import Combine
+import Foundation
 
 final class CardDetailsViewModel: CardDetailsViewModelProtocol {
     
     // MARK: - Public Properties
     
-    lazy public var state: AnyPublisher<ViewState, Never> = stateSubject.eraseToAnyPublisher()
+    lazy public var state = Observable<ViewState>()
     
     var cardName: String { card.name }
     var cardNumber: String? { card.formattedDetailsNumber }
@@ -19,9 +19,7 @@ final class CardDetailsViewModel: CardDetailsViewModelProtocol {
     
     // MARK: - Private Properties
     
-    private(set) lazy var transitionPublisher = transitionSubject.eraseToAnyPublisher()
-    private let transitionSubject = PassthroughSubject<CardDetailsTransition, Never>()
-    private let stateSubject = PassthroughSubject<ViewState, Never>()
+    private(set) lazy var transition = Observable<CardDetailsTransition>()
     
     private let coreDataManager: CoreDataManager
     
@@ -38,7 +36,7 @@ final class CardDetailsViewModel: CardDetailsViewModelProtocol {
 // MARK: - Public Methods
 extension CardDetailsViewModel {
     public func smthTapped() {
-        transitionSubject.send(.openSmth)
+        transition.send(.openSmth)
     }
     
     public func reloadTapped() {
@@ -53,9 +51,9 @@ private extension CardDetailsViewModel {
         switch result {
         case let.success(card):
             self.card = card
-            stateSubject.send(.loaded)
+            state.send(.loaded)
         case let.error(errors):
-            stateSubject.send(.errors(errors))
+            state.send(.errors(errors))
         }
     }
 }

@@ -19,7 +19,7 @@ public extension UIViewController {
     /// - Parameter title:          Alert title
     /// - Parameter message:        Alert message
     /// - Parameter buttons:        List of buttons for displaying
-    public func showAlert(
+    func showAlert(
         title: String? = nil,
         message: String,
         buttons: [UIAlertAction]

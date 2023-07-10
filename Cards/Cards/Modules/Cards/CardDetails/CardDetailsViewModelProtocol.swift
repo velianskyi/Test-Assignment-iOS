@@ -5,10 +5,10 @@
 //  Created by Serhii Velianskyi on 07.07.2023.
 //
 
-import Combine
+import Foundation
 
 protocol CardDetailsViewModelProtocol: AnyObject {
-    var state: AnyPublisher<ViewState, Never> { get }
+    var state: Observable<ViewState> { get }
     
     var cardName: String { get }
     var cardNumber: String? { get }

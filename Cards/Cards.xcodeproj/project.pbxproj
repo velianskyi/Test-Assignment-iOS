@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C59812DB2A56C91F0077C2CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59812DA2A56C91F0077C2CF /* AppDelegate.swift */; };
-		C59812DD2A56C91F0077C2CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59812DC2A56C91F0077C2CF /* SceneDelegate.swift */; };
 		C59812E22A56C91F0077C2CF /* Cards.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C59812E02A56C91F0077C2CF /* Cards.storyboard */; };
 		C59812E52A56C91F0077C2CF /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C59812E32A56C91F0077C2CF /* Cards.xcdatamodeld */; };
 		C59812E72A56C9220077C2CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59812E62A56C9220077C2CF /* Assets.xcassets */; };
@@ -47,12 +46,12 @@
 		C598135E2A5858FC0077C2CF /* CardDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598135D2A5858FC0077C2CF /* CardDetailsViewModel.swift */; };
 		C59813602A5859080077C2CF /* CardDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C598135F2A5859080077C2CF /* CardDetailsVC.swift */; };
 		C59813642A586BBD0077C2CF /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C59813632A586BBD0077C2CF /* Colors.xcassets */; };
+		C59F77982A5BF2C0004A7E3E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59F77972A5BF2C0004A7E3E /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C59812D72A56C91F0077C2CF /* Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C59812DA2A56C91F0077C2CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C59812DC2A56C91F0077C2CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C59812E12A56C91F0077C2CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Cards.storyboard; sourceTree = "<group>"; };
 		C59812E42A56C91F0077C2CF /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
 		C59812E62A56C9220077C2CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		C598135D2A5858FC0077C2CF /* CardDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsViewModel.swift; sourceTree = "<group>"; };
 		C598135F2A5859080077C2CF /* CardDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsVC.swift; sourceTree = "<group>"; };
 		C59813632A586BBD0077C2CF /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		C59F77972A5BF2C0004A7E3E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				C59812DA2A56C91F0077C2CF /* AppDelegate.swift */,
-				C59812DC2A56C91F0077C2CF /* SceneDelegate.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -245,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				C598130F2A56D33A0077C2CF /* Constants.swift */,
+				C59F77972A5BF2C0004A7E3E /* Observable.swift */,
 				C59813142A56D3AE0077C2CF /* ViewState.swift */,
 				C59813112A56D35C0077C2CF /* Enums.swift */,
 				C59813552A581B480077C2CF /* Error.swift */,
@@ -486,6 +486,7 @@
 				C59813262A5757740077C2CF /* CardsCoordinator.swift in Sources */,
 				C598133E2A57F3D90077C2CF /* UIView.swift in Sources */,
 				C598130A2A56D28E0077C2CF /* Coordinator.swift in Sources */,
+				C59F77982A5BF2C0004A7E3E /* Observable.swift in Sources */,
 				C598134B2A57FB2A0077C2CF /* BaseVC.swift in Sources */,
 				C59813442A57F5EC0077C2CF /* CardsListViewModelProtocol.swift in Sources */,
 				C598135A2A5858E60077C2CF /* CardDetailsModuleBuilder.swift in Sources */,
@@ -499,7 +500,6 @@
 				C59813372A57F1FA0077C2CF /* Module.swift in Sources */,
 				C598135E2A5858FC0077C2CF /* CardDetailsViewModel.swift in Sources */,
 				C59813172A56D6180077C2CF /* CoreDataManager.swift in Sources */,
-				C59812DD2A56C91F0077C2CF /* SceneDelegate.swift in Sources */,
 				C59813542A5805500077C2CF /* CardsTVCModel.swift in Sources */,
 				C59812E52A56C91F0077C2CF /* Cards.xcdatamodeld in Sources */,
 				C59812FC2A56D1890077C2CF /* CardType.swift in Sources */,
@@ -674,6 +674,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -703,6 +704,7 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -53,7 +53,7 @@ private extension CardsListVC {
     
     func setupRendering() {
         viewModel?.state
-            .sink { [weak self] state in
+            .bind { [weak self] state in
                 guard let self = self else { return }
                 
                 switch state {
@@ -68,7 +68,6 @@ private extension CardsListVC {
                 case .view: break
                 }
             }
-            .store(in: &subscriptions)
     }
     
     func setupNavigationBar() {

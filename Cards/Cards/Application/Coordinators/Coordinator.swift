@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 
 protocol Coordinator: AnyObject {
     
@@ -15,7 +14,6 @@ protocol Coordinator: AnyObject {
     var parent: Coordinator? { get set }
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-    var subscriptions: Set<AnyCancellable> { get set }
     var appContainer: AppContainer { get set }
     
     // MARK: - Initializers

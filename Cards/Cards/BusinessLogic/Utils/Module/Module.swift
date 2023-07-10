@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import Combine
 
 protocol Transition { }
 
 struct Module<T: Transition> {
-    let transitionPublisher: AnyPublisher<T, Never>
+    let transitionPublisher: Observable<T>
     let viewController: UIViewController
 }

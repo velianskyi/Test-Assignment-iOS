@@ -8,22 +8,36 @@
 import UIKit
 import CoreData
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    // MARK: - Public Properties
+    
+    var window: UIWindow?
+    
+    // MARK: - Private Properties
+    
+    private var appContainer: AppContainer!
+    private var coordinator: CardsCoordinator?
     
     // MARK: - Lifecycle
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        appContainer = AppContainerImpl(appDelegate: self)
+        
+        let navigationController = UINavigationController()
+        coordinator = CardsCoordinator(navigationController: navigationController, appContainer: appContainer)
+        coordinator?.start()
+        
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-    }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        saveContext()
     }
 
     // MARK: - Core Data stack

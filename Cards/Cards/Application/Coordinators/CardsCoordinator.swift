@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Combine
 
 final class CardsCoordinator: Coordinator {
     
@@ -15,7 +14,6 @@ final class CardsCoordinator: Coordinator {
     weak var parent: Coordinator?
     var childCoordinators: [Coordinator]
     var navigationController: UINavigationController
-    var subscriptions: Set<AnyCancellable>
     var appContainer: AppContainer
     
     // MARK: - Initializers
@@ -27,7 +25,6 @@ final class CardsCoordinator: Coordinator {
         self.childCoordinators = [Coordinator]()
         self.navigationController = navigationController ?? UINavigationController()
         self.navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
-        self.subscriptions = Set<AnyCancellable>()
         self.appContainer = appContainer
     }
     
@@ -44,7 +41,7 @@ private extension CardsCoordinator {
         let module = CardsListModuleBuilder.build(appContainer: appContainer)
         
         module.transitionPublisher
-            .sink { [weak self] action in
+            .bind { [weak self] action in
                 guard let self = self else { return }
                 
                 switch action {
@@ -52,7 +49,6 @@ private extension CardsCoordinator {
                     self.showCardDetails(card)
                 }
             }
-            .store(in: &subscriptions)
         
         pushModule(module.viewController)
     }
@@ -61,7 +57,7 @@ private extension CardsCoordinator {
         let module = CardDetailsModuleBuilder.build(appContainer: appContainer, card: card)
         
         module.transitionPublisher
-            .sink { [weak self] action in
+            .bind { [weak self] action in
                 guard let self = self else { return }
                 
                 switch action {
@@ -69,7 +65,6 @@ private extension CardsCoordinator {
                     self.showSmth()
                 }
             }
-            .store(in: &subscriptions)
         
         pushModule(module.viewController)
     }

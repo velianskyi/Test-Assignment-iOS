@@ -6,12 +6,8 @@
 //
 
 import UIKit
-import Combine
 
 open class BaseVC: UIViewController {
-    // MARK: - Public Properties
-    public var subscriptions = Set<AnyCancellable>()
-    
     // MARK: - Private Properties
     private var errorTitlesFactory: TitlesFactory = .init()
     private var defaultErrorAlertButtonTitle: String = "OK"

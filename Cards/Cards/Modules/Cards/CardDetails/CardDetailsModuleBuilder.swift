@@ -16,6 +16,6 @@ final class CardDetailsModuleBuilder {
         let viewModel = CardDetailsViewModel(coreDataManager: appContainer.coreDataManager, card: card)
         let viewController = CardDetailsVC.instantiate(viewModel)
         
-        return Module(transitionPublisher: viewModel.transitionPublisher, viewController: viewController)
+        return Module(transitionPublisher: viewModel.transition, viewController: viewController)
     }
 }
